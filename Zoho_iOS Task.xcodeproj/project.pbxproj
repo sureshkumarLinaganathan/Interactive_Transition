@@ -15,6 +15,7 @@
 		93AD2BDC206CED760013A822 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD2BDB206CED760013A822 /* main.m */; };
 		93AD2BE6206CED760013A822 /* Zoho_iOS_TaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD2BE5206CED760013A822 /* Zoho_iOS_TaskTests.m */; };
 		93AD2BF1206CED760013A822 /* Zoho_iOS_TaskUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD2BF0206CED760013A822 /* Zoho_iOS_TaskUITests.m */; };
+		93EDAC9320713F4B00F3C593 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EDAC9220713F4B00F3C593 /* CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		93AD2BEC206CED760013A822 /* Zoho_iOS TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Zoho_iOS TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93AD2BF0206CED760013A822 /* Zoho_iOS_TaskUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Zoho_iOS_TaskUITests.m; sourceTree = "<group>"; };
 		93AD2BF2206CED760013A822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93EDAC9120713F4B00F3C593 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		93EDAC9220713F4B00F3C593 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +106,13 @@
 			children = (
 				93AD2BCC206CED760013A822 /* AppDelegate.h */,
 				93AD2BCD206CED760013A822 /* AppDelegate.m */,
-				93AD2BCF206CED760013A822 /* ViewController.h */,
-				93AD2BD0206CED760013A822 /* ViewController.m */,
+				93EDAC9020713F1400F3C593 /* Controller */,
 				93AD2BD2206CED760013A822 /* Main.storyboard */,
 				93AD2BD5206CED760013A822 /* Assets.xcassets */,
 				93AD2BD7206CED760013A822 /* LaunchScreen.storyboard */,
 				93AD2BDA206CED760013A822 /* Info.plist */,
 				93AD2BDB206CED760013A822 /* main.m */,
+				93EDAC9420713F5700F3C593 /* Cell */,
 			);
 			path = "Zoho_iOS Task";
 			sourceTree = "<group>";
@@ -130,6 +133,24 @@
 				93AD2BF2206CED760013A822 /* Info.plist */,
 			);
 			path = "Zoho_iOS TaskUITests";
+			sourceTree = "<group>";
+		};
+		93EDAC9020713F1400F3C593 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				93AD2BCF206CED760013A822 /* ViewController.h */,
+				93AD2BD0206CED760013A822 /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		93EDAC9420713F5700F3C593 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				93EDAC9120713F4B00F3C593 /* CollectionViewCell.h */,
+				93EDAC9220713F4B00F3C593 /* CollectionViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +288,7 @@
 			files = (
 				93AD2BD1206CED760013A822 /* ViewController.m in Sources */,
 				93AD2BDC206CED760013A822 /* main.m in Sources */,
+				93EDAC9320713F4B00F3C593 /* CollectionViewCell.m in Sources */,
 				93AD2BCE206CED760013A822 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,7 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sureshkumar.Zoho-iOS-Task";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -452,7 +474,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sureshkumar.Zoho-iOS-Task";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
