@@ -23,8 +23,14 @@ enum screenSize
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *planetViewHeightConstraint;
 @property (strong, nonatomic) NSMutableArray *imageArray;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, assign) int plantScreenSize;
+@property (nonatomic, assign) int detailViewScreenSize;
+@property (weak, nonatomic) IBOutlet UIView *detailsView;
+@property (weak, nonatomic) IBOutlet UIView *waterAnimationView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailViewHeightConstraint;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *waterInfoViewHeightConstraint;
 @end
 
 @implementation ViewController
@@ -45,7 +51,15 @@ enum screenSize
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(planetViewTapped)];
     [tapGesture setNumberOfTapsRequired:1];
     [self.plantView addGestureRecognizer:tapGesture];
+    UITapGestureRecognizer *detailViewTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(detailViewTapped)];
+
+    [detailViewTapGesture setNumberOfTapsRequired:1];
+    [_detailsView addGestureRecognizer:detailViewTapGesture];
+    
+    [_waterAnimationView.layer setCornerRadius:10];
+    
     [_plantView.layer setCornerRadius:5.0];
+    [_detailsView.layer setCornerRadius:5.0];
     _imageArray = [[NSMutableArray alloc]initWithObjects:@"image_1",@"image_2",@"image_3",@"image_4",@"image_5",nil];
 }
 
@@ -55,6 +69,7 @@ enum screenSize
         _plantScreenSize = fullScreen;
      height = _plantView.frame.origin.y - (_headerView.frame.origin.y+48);
      height = _plantView.frame.size.height+height;
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
     }else{
         _plantScreenSize = halfScreen;
         height = 300;
@@ -65,6 +80,30 @@ enum screenSize
         
     } completion:nil];
     
+}
+
+
+-(void)detailViewTapped{
+    
+    int height = 0 ;
+    _waterAnimationView.alpha = 0;
+    if(_detailViewScreenSize == halfScreen){
+        _detailViewScreenSize = fullScreen;
+        height = 300;
+    }else{
+        _detailViewScreenSize = halfScreen;
+        height = 110;
+    }
+    _detailViewHeightConstraint.constant = height;
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            [self.view layoutIfNeeded];
+            
+        }];
+        
+    }];
 }
 
 #pragma mark - Collection view data source and delegate
