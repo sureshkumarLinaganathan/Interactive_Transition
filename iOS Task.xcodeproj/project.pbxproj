@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		93AD2BC9206CED760013A822 /* Zoho_iOS Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zoho_iOS Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93AD2BC9206CED760013A822 /* iOS Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93AD2BCC206CED760013A822 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		93AD2BCD206CED760013A822 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		93AD2BCF206CED760013A822 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -46,10 +46,10 @@
 		93AD2BD8206CED760013A822 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93AD2BDA206CED760013A822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93AD2BDB206CED760013A822 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		93AD2BE1206CED760013A822 /* Zoho_iOS TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Zoho_iOS TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93AD2BE1206CED760013A822 /* iOS TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93AD2BE5206CED760013A822 /* Zoho_iOS_TaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Zoho_iOS_TaskTests.m; sourceTree = "<group>"; };
 		93AD2BE7206CED760013A822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93AD2BEC206CED760013A822 /* Zoho_iOS TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Zoho_iOS TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93AD2BEC206CED760013A822 /* iOS TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93AD2BF0206CED760013A822 /* Zoho_iOS_TaskUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Zoho_iOS_TaskUITests.m; sourceTree = "<group>"; };
 		93AD2BF2206CED760013A822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93EDAC9120713F4B00F3C593 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
@@ -84,9 +84,9 @@
 		93AD2BC0206CED760013A822 = {
 			isa = PBXGroup;
 			children = (
-				93AD2BCB206CED760013A822 /* Zoho_iOS Task */,
-				93AD2BE4206CED760013A822 /* Zoho_iOS TaskTests */,
-				93AD2BEF206CED760013A822 /* Zoho_iOS TaskUITests */,
+				93AD2BCB206CED760013A822 /* iOS_Task */,
+				93AD2BE4206CED760013A822 /* iOS_TaskTests */,
+				93AD2BEF206CED760013A822 /* iOS_TaskUITests */,
 				93AD2BCA206CED760013A822 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,14 +94,14 @@
 		93AD2BCA206CED760013A822 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				93AD2BC9206CED760013A822 /* Zoho_iOS Task.app */,
-				93AD2BE1206CED760013A822 /* Zoho_iOS TaskTests.xctest */,
-				93AD2BEC206CED760013A822 /* Zoho_iOS TaskUITests.xctest */,
+				93AD2BC9206CED760013A822 /* iOS Task.app */,
+				93AD2BE1206CED760013A822 /* iOS TaskTests.xctest */,
+				93AD2BEC206CED760013A822 /* iOS TaskUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		93AD2BCB206CED760013A822 /* Zoho_iOS Task */ = {
+		93AD2BCB206CED760013A822 /* iOS_Task */ = {
 			isa = PBXGroup;
 			children = (
 				93AD2BCC206CED760013A822 /* AppDelegate.h */,
@@ -114,25 +114,25 @@
 				93AD2BDB206CED760013A822 /* main.m */,
 				93EDAC9420713F5700F3C593 /* Cell */,
 			);
-			path = "Zoho_iOS Task";
+			path = iOS_Task;
 			sourceTree = "<group>";
 		};
-		93AD2BE4206CED760013A822 /* Zoho_iOS TaskTests */ = {
+		93AD2BE4206CED760013A822 /* iOS_TaskTests */ = {
 			isa = PBXGroup;
 			children = (
 				93AD2BE5206CED760013A822 /* Zoho_iOS_TaskTests.m */,
 				93AD2BE7206CED760013A822 /* Info.plist */,
 			);
-			path = "Zoho_iOS TaskTests";
+			path = iOS_TaskTests;
 			sourceTree = "<group>";
 		};
-		93AD2BEF206CED760013A822 /* Zoho_iOS TaskUITests */ = {
+		93AD2BEF206CED760013A822 /* iOS_TaskUITests */ = {
 			isa = PBXGroup;
 			children = (
 				93AD2BF0206CED760013A822 /* Zoho_iOS_TaskUITests.m */,
 				93AD2BF2206CED760013A822 /* Info.plist */,
 			);
-			path = "Zoho_iOS TaskUITests";
+			path = iOS_TaskUITests;
 			sourceTree = "<group>";
 		};
 		93EDAC9020713F1400F3C593 /* Controller */ = {
@@ -156,9 +156,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		93AD2BC8206CED760013A822 /* Zoho_iOS Task */ = {
+		93AD2BC8206CED760013A822 /* iOS Task */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93AD2BF5206CED760013A822 /* Build configuration list for PBXNativeTarget "Zoho_iOS Task" */;
+			buildConfigurationList = 93AD2BF5206CED760013A822 /* Build configuration list for PBXNativeTarget "iOS Task" */;
 			buildPhases = (
 				93AD2BC5206CED760013A822 /* Sources */,
 				93AD2BC6206CED760013A822 /* Frameworks */,
@@ -168,14 +168,14 @@
 			);
 			dependencies = (
 			);
-			name = "Zoho_iOS Task";
+			name = "iOS Task";
 			productName = "Zoho_iOS Task";
-			productReference = 93AD2BC9206CED760013A822 /* Zoho_iOS Task.app */;
+			productReference = 93AD2BC9206CED760013A822 /* iOS Task.app */;
 			productType = "com.apple.product-type.application";
 		};
-		93AD2BE0206CED760013A822 /* Zoho_iOS TaskTests */ = {
+		93AD2BE0206CED760013A822 /* iOS TaskTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93AD2BF8206CED760013A822 /* Build configuration list for PBXNativeTarget "Zoho_iOS TaskTests" */;
+			buildConfigurationList = 93AD2BF8206CED760013A822 /* Build configuration list for PBXNativeTarget "iOS TaskTests" */;
 			buildPhases = (
 				93AD2BDD206CED760013A822 /* Sources */,
 				93AD2BDE206CED760013A822 /* Frameworks */,
@@ -186,14 +186,14 @@
 			dependencies = (
 				93AD2BE3206CED760013A822 /* PBXTargetDependency */,
 			);
-			name = "Zoho_iOS TaskTests";
+			name = "iOS TaskTests";
 			productName = "Zoho_iOS TaskTests";
-			productReference = 93AD2BE1206CED760013A822 /* Zoho_iOS TaskTests.xctest */;
+			productReference = 93AD2BE1206CED760013A822 /* iOS TaskTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		93AD2BEB206CED760013A822 /* Zoho_iOS TaskUITests */ = {
+		93AD2BEB206CED760013A822 /* iOS TaskUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93AD2BFB206CED760013A822 /* Build configuration list for PBXNativeTarget "Zoho_iOS TaskUITests" */;
+			buildConfigurationList = 93AD2BFB206CED760013A822 /* Build configuration list for PBXNativeTarget "iOS TaskUITests" */;
 			buildPhases = (
 				93AD2BE8206CED760013A822 /* Sources */,
 				93AD2BE9206CED760013A822 /* Frameworks */,
@@ -204,9 +204,9 @@
 			dependencies = (
 				93AD2BEE206CED760013A822 /* PBXTargetDependency */,
 			);
-			name = "Zoho_iOS TaskUITests";
+			name = "iOS TaskUITests";
 			productName = "Zoho_iOS TaskUITests";
-			productReference = 93AD2BEC206CED760013A822 /* Zoho_iOS TaskUITests.xctest */;
+			productReference = 93AD2BEC206CED760013A822 /* iOS TaskUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -234,7 +234,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 93AD2BC4206CED760013A822 /* Build configuration list for PBXProject "Zoho_iOS Task" */;
+			buildConfigurationList = 93AD2BC4206CED760013A822 /* Build configuration list for PBXProject "iOS Task" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -247,9 +247,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				93AD2BC8206CED760013A822 /* Zoho_iOS Task */,
-				93AD2BE0206CED760013A822 /* Zoho_iOS TaskTests */,
-				93AD2BEB206CED760013A822 /* Zoho_iOS TaskUITests */,
+				93AD2BC8206CED760013A822 /* iOS Task */,
+				93AD2BE0206CED760013A822 /* iOS TaskTests */,
+				93AD2BEB206CED760013A822 /* iOS TaskUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -314,12 +314,12 @@
 /* Begin PBXTargetDependency section */
 		93AD2BE3206CED760013A822 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 93AD2BC8206CED760013A822 /* Zoho_iOS Task */;
+			target = 93AD2BC8206CED760013A822 /* iOS Task */;
 			targetProxy = 93AD2BE2206CED760013A822 /* PBXContainerItemProxy */;
 		};
 		93AD2BEE206CED760013A822 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 93AD2BC8206CED760013A822 /* Zoho_iOS Task */;
+			target = 93AD2BC8206CED760013A822 /* iOS Task */;
 			targetProxy = 93AD2BED206CED760013A822 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -454,7 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Zoho_iOS Task/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOS_Task/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sureshkumar.Zoho-iOS-Task";
@@ -470,7 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Zoho_iOS Task/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOS_Task/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sureshkumar.Zoho-iOS-Task";
@@ -490,7 +490,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sureshkumar.Zoho-iOS-TaskTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zoho_iOS Task.app/Zoho_iOS Task";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS Task.app/iOS Task";
 			};
 			name = Debug;
 		};
@@ -504,7 +504,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sureshkumar.Zoho-iOS-TaskTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zoho_iOS Task.app/Zoho_iOS Task";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS Task.app/iOS Task";
 			};
 			name = Release;
 		};
@@ -537,7 +537,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		93AD2BC4206CED760013A822 /* Build configuration list for PBXProject "Zoho_iOS Task" */ = {
+		93AD2BC4206CED760013A822 /* Build configuration list for PBXProject "iOS Task" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93AD2BF3206CED760013A822 /* Debug */,
@@ -546,7 +546,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93AD2BF5206CED760013A822 /* Build configuration list for PBXNativeTarget "Zoho_iOS Task" */ = {
+		93AD2BF5206CED760013A822 /* Build configuration list for PBXNativeTarget "iOS Task" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93AD2BF6206CED760013A822 /* Debug */,
@@ -555,7 +555,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93AD2BF8206CED760013A822 /* Build configuration list for PBXNativeTarget "Zoho_iOS TaskTests" */ = {
+		93AD2BF8206CED760013A822 /* Build configuration list for PBXNativeTarget "iOS TaskTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93AD2BF9206CED760013A822 /* Debug */,
@@ -564,7 +564,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93AD2BFB206CED760013A822 /* Build configuration list for PBXNativeTarget "Zoho_iOS TaskUITests" */ = {
+		93AD2BFB206CED760013A822 /* Build configuration list for PBXNativeTarget "iOS TaskUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93AD2BFC206CED760013A822 /* Debug */,

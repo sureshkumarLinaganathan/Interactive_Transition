@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -214,10 +214,21 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IR7-yh-ZdG">
                                         <rect key="frame" x="287" y="10" width="80" height="75"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raindrop_icon" translatesAutoresizingMaskIntoConstraints="NO" id="0O9-NL-6kZ">
+                                                <rect key="frame" x="20" y="17.666666666666629" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="VfA-kk-wei"/>
+                                                    <constraint firstAttribute="width" constant="40" id="i5w-bb-neR"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.18431372549019609" green="0.73725490196078436" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="0O9-NL-6kZ" firstAttribute="centerY" secondItem="IR7-yh-ZdG" secondAttribute="centerY" id="Qco-5D-Tq8"/>
                                             <constraint firstAttribute="height" constant="75" id="e7i-fp-WMT"/>
                                             <constraint firstAttribute="width" constant="80" id="g4L-Pj-4Tn"/>
+                                            <constraint firstItem="0O9-NL-6kZ" firstAttribute="centerX" secondItem="IR7-yh-ZdG" secondAttribute="centerX" id="zJ2-Lx-TgT"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qps-NO-qDd">
@@ -289,7 +300,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-48-PFi">
+                                            <segmentedControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mgm-48-PFi">
                                                 <rect key="frame" x="8" y="51" width="359" height="25"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <segments>
@@ -325,20 +336,20 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="bWN-Pl-LOK" firstAttribute="leading" secondItem="kcM-xa-NKB" secondAttribute="leading" constant="8" id="49Z-iM-juk"/>
-                                    <constraint firstItem="zpu-cG-spk" firstAttribute="top" secondItem="HRN-Sg-aQb" secondAttribute="bottom" constant="5" id="4kq-wV-R9P"/>
                                     <constraint firstItem="iRH-Br-NvV" firstAttribute="leading" secondItem="kcM-xa-NKB" secondAttribute="leading" id="9GP-ks-cxZ"/>
+                                    <constraint firstItem="zpu-cG-spk" firstAttribute="top" secondItem="HRN-Sg-aQb" secondAttribute="bottom" constant="5" id="CQB-mN-QLW"/>
                                     <constraint firstAttribute="trailing" secondItem="IR7-yh-ZdG" secondAttribute="trailing" constant="8" id="DQg-Sw-cOV"/>
                                     <constraint firstItem="IR7-yh-ZdG" firstAttribute="top" secondItem="kcM-xa-NKB" secondAttribute="top" constant="10" id="EdD-wY-bQo"/>
                                     <constraint firstItem="Qps-NO-qDd" firstAttribute="top" secondItem="bWN-Pl-LOK" secondAttribute="bottom" constant="5" id="N4i-no-ExK"/>
                                     <constraint firstAttribute="height" constant="110" id="O2E-Mz-wJF"/>
                                     <constraint firstItem="IR7-yh-ZdG" firstAttribute="leading" secondItem="bWN-Pl-LOK" secondAttribute="trailing" constant="5" id="U1I-VQ-FwR"/>
+                                    <constraint firstItem="bWN-Pl-LOK" firstAttribute="top" secondItem="zpu-cG-spk" secondAttribute="bottom" constant="1" id="fGh-sp-fhR"/>
                                     <constraint firstItem="zpu-cG-spk" firstAttribute="leading" secondItem="kcM-xa-NKB" secondAttribute="leading" constant="8" id="gXU-pX-s6Q"/>
                                     <constraint firstItem="HRN-Sg-aQb" firstAttribute="leading" secondItem="kcM-xa-NKB" secondAttribute="leading" constant="8" id="h6w-wd-FjH"/>
                                     <constraint firstAttribute="trailing" secondItem="HRN-Sg-aQb" secondAttribute="trailing" constant="5" id="iFe-vB-j2e"/>
                                     <constraint firstAttribute="trailing" secondItem="Qps-NO-qDd" secondAttribute="trailing" id="o01-dP-hJt"/>
                                     <constraint firstItem="HRN-Sg-aQb" firstAttribute="top" secondItem="kcM-xa-NKB" secondAttribute="top" constant="5" id="oUK-dF-exV"/>
                                     <constraint firstItem="IR7-yh-ZdG" firstAttribute="leading" secondItem="zpu-cG-spk" secondAttribute="trailing" constant="5" id="q6u-tz-Fw6"/>
-                                    <constraint firstItem="bWN-Pl-LOK" firstAttribute="top" secondItem="zpu-cG-spk" secondAttribute="bottom" constant="1" id="rTg-I0-Fse"/>
                                     <constraint firstAttribute="trailing" secondItem="iRH-Br-NvV" secondAttribute="trailing" id="u23-xM-VB8"/>
                                     <constraint firstItem="Qps-NO-qDd" firstAttribute="leading" secondItem="kcM-xa-NKB" secondAttribute="leading" id="vC5-8L-F02"/>
                                     <constraint firstItem="iRH-Br-NvV" firstAttribute="top" secondItem="Qps-NO-qDd" secondAttribute="bottom" constant="5" id="z4p-d0-emO"/>
@@ -383,6 +394,7 @@
                         <outlet property="segmentControl" destination="Mgm-48-PFi" id="aMb-NN-EcA"/>
                         <outlet property="temperatureLabel" destination="wkR-gq-yAV" id="ICS-Yy-pck"/>
                         <outlet property="waterAnimationView" destination="IR7-yh-ZdG" id="tfn-Cb-gWi"/>
+                        <outlet property="waterDropImageView" destination="0O9-NL-6kZ" id="tPb-hI-gxl"/>
                         <outlet property="waterInfoTextLabel" destination="hNZ-Ul-OLk" id="hyX-Gt-QZ3"/>
                         <outlet property="waterInfoTitleLabel" destination="LJk-ci-aY5" id="2Jc-GH-ZqD"/>
                         <outlet property="waterInfoView" destination="Qps-NO-qDd" id="VSW-1d-nyF"/>
@@ -417,5 +429,6 @@
         <image name="back_icon" width="42" height="42"/>
         <image name="bg_image" width="1200" height="800"/>
         <image name="planet_icon" width="24" height="24"/>
+        <image name="raindrop_icon" width="42" height="42"/>
     </resources>
 </document>

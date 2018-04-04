@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Zoho_iOS Task.xcodeproj">
+      location = "self:/Users/sureshkumarlinganathan/Desktop/Interactive_Transition/iOS Task.xcodeproj">
    </FileRef>
 </Workspace>

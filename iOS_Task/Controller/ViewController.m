@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  Zoho_iOS Task
+// iOS_Task
 //
 //  Created by Suresh Kumar on 29/03/18.
 //  Copyright © 2018 Suresh Kumar. All rights reserved.
@@ -47,6 +47,7 @@ enum flag{
 @property (weak, nonatomic) IBOutlet UILabel *lightLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *waterDropImageView;
 
 
 @property (nonatomic,assign) int flag;
@@ -70,14 +71,13 @@ enum flag{
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(planetViewTapped)];
     [tapGesture setNumberOfTapsRequired:1];
     [self.plantView addGestureRecognizer:tapGesture];
-    UITapGestureRecognizer *detailViewTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(detailViewTapped)];
-
-    [detailViewTapGesture setNumberOfTapsRequired:1];
+    
+    UIPanGestureRecognizer *detailViewTapGesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(detailViewTapped:)];
     [_detailsView addGestureRecognizer:detailViewTapGesture];
     
     UITapGestureRecognizer *waterViewTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(waterViewTapped)];
     [_waterAnimationView addGestureRecognizer:waterViewTapGesture];
-    [_waterAnimationView.layer setCornerRadius:10];
+    [_waterAnimationView.layer setCornerRadius:15.0];
     
     [_plantView.layer setCornerRadius:5.0];
     [_detailsView.layer setCornerRadius:5.0];
@@ -123,55 +123,84 @@ enum flag{
 }
 
 
--(void)detailViewTapped{
+-(void)detailViewTapped:(UIPanGestureRecognizer*)recognizer{
     
     __block int height = 0 ;
     
+    
+   CGPoint point = [recognizer locationInView:self.detailsView];
+    
     if(_detailViewScreenSize == halfScreen){
-        [self backgroundViewZoomInAnimation];
         _detailViewScreenSize = fullScreen;
-         height = 300;
+        [self backgroundViewZoomInAnimation];
+        height = 300;
         _detailViewHeightConstraint.constant = height;
         _nextWaterinLabeltopconstraint.constant = 150;
         [self resetAlphaValue];
-        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-          [self.view layoutIfNeeded];
-        } completion:^(BOOL finished) {
-           
+         [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+              [self.view layoutIfNeeded];
+         } completion:^(BOOL finished) {
+        
         }];
         [self performSelector:@selector(contentAnimation) withObject:nil afterDelay:0.3];
     }else{
-        NSArray *array =[[NSArray alloc]initWithObjects:@1,@0.7,@0.5,@0.3,@0.1,@0,nil];
-        [self resetPlanInfoViewAnimation];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [self showWaterInfoViewAnimation:array withAlphavalue:0.0];
-            _nextWaterinLabeltopconstraint.constant = 150;
-            [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-                        [self.view layoutIfNeeded];
-                        [self backgroundViewZoomOutAnimation];
-            } completion:^(BOOL finished) {
-            }];
-            
-            _detailViewScreenSize = halfScreen;
-            height = 110;
-            _nextWaterinLabeltopconstraint.constant = 5;
-            _detailViewHeightConstraint.constant = height;
-            [UIView animateWithDuration:0.4 delay:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-                [self changeDayAnimation:1 withFlag:increment];
-                [self.view layoutIfNeeded];
-            } completion:^(BOOL finished) {
-            
-            }];
-            
-        });
-
+        height = 110;
+        _detailViewScreenSize = halfScreen;
+       _nextWaterinLabeltopconstraint.constant = 5;
+      _detailViewHeightConstraint.constant = height;
+      [UIView animateWithDuration:0.4 delay:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+      [self changeDayAnimation:1 withFlag:increment];
+        [self.view layoutIfNeeded];
+     } completion:^(BOOL finished) {
+        
+    }];
     }
+    NSLog(@"%f, %f",point.x,point.y);
+//    if(_detailViewScreenSize == halfScreen){
+//        [self backgroundViewZoomInAnimation];
+//        _detailViewScreenSize = fullScreen;
+//         height = 300;
+//        _detailViewHeightConstraint.constant = height;
+//        _nextWaterinLabeltopconstraint.constant = 150;
+//        [self resetAlphaValue];
+//        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+//          [self.view layoutIfNeeded];
+//        } completion:^(BOOL finished) {
+//
+//        }];
+//        [self performSelector:@selector(contentAnimation) withObject:nil afterDelay:0.3];
+//    }else{
+//        NSArray *array =[[NSArray alloc]initWithObjects:@1,@0.7,@0.5,@0.3,@0.1,@0,nil];
+//        [self resetPlanInfoViewAnimation];
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//            [self showWaterInfoViewAnimation:array withAlphavalue:0.0];
+//            _nextWaterinLabeltopconstraint.constant = 150;
+//            [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+//                        [self.view layoutIfNeeded];
+//                        [self backgroundViewZoomOutAnimation];
+//            } completion:^(BOOL finished) {
+//            }];
+//
+//            _detailViewScreenSize = halfScreen;
+//            height = 110;
+//            _nextWaterinLabeltopconstraint.constant = 5;
+//            _detailViewHeightConstraint.constant = height;
+//            [UIView animateWithDuration:0.4 delay:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+//                [self changeDayAnimation:1 withFlag:increment];
+//                [self.view layoutIfNeeded];
+//            } completion:^(BOOL finished) {
+//
+//            }];
+//
+//        });
+//
+//    }
     
 }
 
 -(void)waterViewTapped{
     
-    [self detailViewTapped];
+    //[self detailViewTapped];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         
         [self changeDayAnimation:7 withFlag:decrement];
@@ -191,8 +220,40 @@ enum flag{
         _dayLabel.text = [NSString stringWithFormat:@"%d %@",value,days];
         if((value <= 6)&&(value >1)){
         [self changeDayAnimation:value withFlag:flag];
-    }
+        }else{
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.4*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                
+                if(flag == increment){
+                    _waterDropImageView.image = [UIImage imageNamed:@"check-mark_icon"];
+                    _waterAnimationView.layer.borderColor = [UIColor colorWithRed:47.0/255.0 green:188.0/255.0 blue:167.0/255.0 alpha:1.0].CGColor;
+                    UIColor *fromColor = [UIColor colorWithRed:47.0/255.0 green:188.0/255.0 blue:167.0/255.0 alpha:1.0];
+                    _waterAnimationView.layer.borderWidth = 2.0;
+                    [self backGroundColorAnimation:fromColor withToColor:[UIColor whiteColor]];
+                    _waterAnimationView.backgroundColor = [UIColor whiteColor];
+                    
+                }else{
+                    _waterDropImageView.image = [UIImage imageNamed:@"raindrop_icon"];
+                    UIColor *toColor = [UIColor colorWithRed:47.0/255.0 green:188.0/255.0 blue:167.0/255.0 alpha:1.0];
+                    _waterAnimationView.layer.borderColor = [UIColor whiteColor].CGColor;
+                    _waterAnimationView.layer.borderWidth = 2.0;
+                    [self backGroundColorAnimation:[UIColor whiteColor] withToColor:toColor];
+                    _waterAnimationView.backgroundColor = toColor;
+                }
+            });
+            
+   }
     });
+    
+}
+
+-(void)backGroundColorAnimation:(UIColor*)fromColor withToColor:(UIColor*)toColor{
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    animation.fromValue = fromColor;
+    animation.toValue = toColor;
+    animation.duration = 1.0;
+    [_waterAnimationView.layer addAnimation:animation forKey:@"backgroundColor"];
     
 }
 
