@@ -15,6 +15,12 @@ enum screenSize
     fullScreen
 };
 
+enum flag{
+    
+    increment,
+    decrement
+};
+
 
 @interface ViewController ()
 
@@ -35,6 +41,15 @@ enum screenSize
 @property (weak, nonatomic) IBOutlet UILabel *waterInfoTextLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextWaterinLabeltopconstraint;
 
+@property (weak, nonatomic) IBOutlet UILabel *plantInfoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *lightLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
+
+
+@property (nonatomic,assign) int flag;
 
 @end
 
@@ -46,9 +61,6 @@ enum screenSize
     [tabBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
     [tabBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor greenColor]} forState:UIControlStateSelected];
     _imageView.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.1,1.1);
-
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background Image"]];
-    // Do any additional setup after loading the view, typically from a nib.
     [self setupView];
 }
 
@@ -63,6 +75,8 @@ enum screenSize
     [detailViewTapGesture setNumberOfTapsRequired:1];
     [_detailsView addGestureRecognizer:detailViewTapGesture];
     
+    UITapGestureRecognizer *waterViewTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(waterViewTapped)];
+    [_waterAnimationView addGestureRecognizer:waterViewTapGesture];
     [_waterAnimationView.layer setCornerRadius:10];
     
     [_plantView.layer setCornerRadius:5.0];
@@ -119,8 +133,7 @@ enum screenSize
          height = 300;
         _detailViewHeightConstraint.constant = height;
         _nextWaterinLabeltopconstraint.constant = 150;
-        _waterInfoTextLabel.alpha = 0;
-        _waterInfoTitleLabel.alpha = 0;
+        [self resetAlphaValue];
         [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
           [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
@@ -128,26 +141,58 @@ enum screenSize
         }];
         [self performSelector:@selector(contentAnimation) withObject:nil afterDelay:0.3];
     }else{
-        _nextWaterinLabeltopconstraint.constant = 150;
         NSArray *array =[[NSArray alloc]initWithObjects:@1,@0.7,@0.5,@0.3,@0.1,@0,nil];
-        [self showWaterInfoViewAnimation:array withAlphavalue:0.0];
-        [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            [self.view layoutIfNeeded];
-            [self backgroundViewZoomOutAnimation];
-        } completion:^(BOOL finished) {
-        }];
-        
-        _detailViewScreenSize = halfScreen;
-         height = 110;
-        _nextWaterinLabeltopconstraint.constant = 5;
-        _detailViewHeightConstraint.constant = height;
-        [UIView animateWithDuration:0.4 delay:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            [self.view layoutIfNeeded];
-        } completion:^(BOOL finished) {
+        [self resetPlanInfoViewAnimation];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [self showWaterInfoViewAnimation:array withAlphavalue:0.0];
+            _nextWaterinLabeltopconstraint.constant = 150;
+            [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                        [self.view layoutIfNeeded];
+                        [self backgroundViewZoomOutAnimation];
+            } completion:^(BOOL finished) {
+            }];
             
-        }];
-        
+            _detailViewScreenSize = halfScreen;
+            height = 110;
+            _nextWaterinLabeltopconstraint.constant = 5;
+            _detailViewHeightConstraint.constant = height;
+            [UIView animateWithDuration:0.4 delay:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                [self changeDayAnimation:1 withFlag:increment];
+                [self.view layoutIfNeeded];
+            } completion:^(BOOL finished) {
+            
+            }];
+            
+        });
+
     }
+    
+}
+
+-(void)waterViewTapped{
+    
+    [self detailViewTapped];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        
+        [self changeDayAnimation:7 withFlag:decrement];
+    });
+}
+
+-(void)changeDayAnimation:(int) i withFlag:(int)flag {
+    __block int value = i;
+    
+    if(flag == increment){
+        value = value+1;
+    }else{
+        value = value -1;
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        NSString *days = value == 1? @"day":@"days";
+        _dayLabel.text = [NSString stringWithFormat:@"%d %@",value,days];
+        if((value <= 6)&&(value >1)){
+        [self changeDayAnimation:value withFlag:flag];
+    }
+    });
     
 }
 
@@ -158,11 +203,43 @@ enum screenSize
         [self.view layoutIfNeeded];
         
     } completion:^(BOOL finished) {
-        _waterInfoTextLabel.alpha = 0;
-        _waterInfoTextLabel.alpha = 0;
+        [self resetAlphaValue];
         NSArray *array =[[NSArray alloc]initWithObjects:@0,@0.1,@0.3,@0.5,@0.7,@1,nil];
         [self showWaterInfoViewAnimation:array withAlphavalue:1.0];
+        [self performSelector:@selector(setPlanInfoAnimation) withObject:nil afterDelay:0.1];
+       
     }];
+}
+
+
+-(void)setPlanInfoAnimation{
+    NSArray *array =[[NSArray alloc]initWithObjects:@0,@0.1,@0.3,@0.5,@0.7,@1,nil];
+    [self showPlantInfoViewAnimation:array withLayer:_plantInfoLabel.layer];
+    _plantInfoLabel.alpha = 1.0;
+    [self showPlantInfoViewAnimation:array withLayer:_temperatureLabel.layer];
+    _temperatureLabel.alpha = 1.0;
+    [self showPlantInfoViewAnimation:array withLayer:_humidityLabel.layer];
+    _humidityLabel.alpha = 1.0;
+    [self showPlantInfoViewAnimation:array withLayer:_lightLabel.layer];
+    _lightLabel.alpha = 1.0;
+    [self showPlantInfoViewAnimation:array withLayer:_segmentControl.layer];
+    _segmentControl.alpha = 1.0;
+}
+
+-(void)resetPlanInfoViewAnimation{
+    
+    NSArray *array =[[NSArray alloc]initWithObjects:@1,@0.7,@0.5,@0.3,@0.1,@0,nil];
+    [self showPlantInfoViewAnimation:array withLayer:_plantInfoLabel.layer];
+    _plantInfoLabel.alpha = 0.0;
+    [self showPlantInfoViewAnimation:array withLayer:_temperatureLabel.layer];
+    _temperatureLabel.alpha = 0.0;
+    [self showPlantInfoViewAnimation:array withLayer:_humidityLabel.layer];
+    _humidityLabel.alpha = 0.0;
+    [self showPlantInfoViewAnimation:array withLayer:_lightLabel.layer];
+    _lightLabel.alpha = 0.0;
+    [self showPlantInfoViewAnimation:array withLayer:_segmentControl.layer];
+    _segmentControl.alpha = 0.0;
+    
 }
 
 #pragma mark - Collection view data source and delegate
@@ -209,8 +286,27 @@ enum screenSize
     
 }
 
+-(void)showPlantInfoViewAnimation:(NSArray*)value withLayer:(CALayer*)layer{
+    [layer removeAllAnimations];
+    CAKeyframeAnimation *plantInfoAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+    plantInfoAnimation.values = value;
+    plantInfoAnimation.duration = 0.3;
+    plantInfoAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    [layer addAnimation:plantInfoAnimation forKey:@"opacity"];
+    
+}
 
 
+-(void)resetAlphaValue{
+    
+     _plantInfoLabel.alpha = 0;
+     _waterInfoTextLabel.alpha = 0;
+     _waterInfoTitleLabel.alpha = 0;
+     _segmentControl.alpha = 0;
+    _temperatureLabel.alpha = 0;
+    _humidityLabel.alpha = 0;
+    _lightLabel.alpha = 0;
+}
 
 
 

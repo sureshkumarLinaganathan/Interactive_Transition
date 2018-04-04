@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -194,7 +194,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpu-cG-spk">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpu-cG-spk">
                                         <rect key="frame" x="8" y="35" width="274" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="CtH-LG-7Mr"/>
@@ -369,13 +369,19 @@
                     <tabBarItem key="tabBarItem" title="My Plant" image="planet_icon" id="2b2-fG-6OO"/>
                     <navigationItem key="navigationItem" id="5wN-hk-IR5"/>
                     <connections>
+                        <outlet property="dayLabel" destination="zpu-cG-spk" id="Rwu-Ux-PmZ"/>
                         <outlet property="detailViewHeightConstraint" destination="O2E-Mz-wJF" id="cX9-8e-yzZ"/>
                         <outlet property="detailsView" destination="kcM-xa-NKB" id="QSf-zl-DBy"/>
                         <outlet property="headerView" destination="Pol-3O-Qzg" id="2yG-IV-Wyf"/>
+                        <outlet property="humidityLabel" destination="JKd-YW-0sJ" id="epk-HK-GSO"/>
                         <outlet property="imageView" destination="2yA-JC-yb1" id="Mfm-38-9OU"/>
+                        <outlet property="lightLabel" destination="iE9-w9-MVp" id="80F-Iq-Kkt"/>
                         <outlet property="nextWaterinLabeltopconstraint" destination="oUK-dF-exV" id="b4u-vc-BNL"/>
                         <outlet property="planetViewHeightConstraint" destination="hVN-Vf-QOQ" id="p9e-xv-A8F"/>
+                        <outlet property="plantInfoLabel" destination="p0q-ly-qas" id="tao-H8-uB8"/>
                         <outlet property="plantView" destination="LWC-1X-zKU" id="pcR-Dt-OKD"/>
+                        <outlet property="segmentControl" destination="Mgm-48-PFi" id="aMb-NN-EcA"/>
+                        <outlet property="temperatureLabel" destination="wkR-gq-yAV" id="ICS-Yy-pck"/>
                         <outlet property="waterAnimationView" destination="IR7-yh-ZdG" id="tfn-Cb-gWi"/>
                         <outlet property="waterInfoTextLabel" destination="hNZ-Ul-OLk" id="hyX-Gt-QZ3"/>
                         <outlet property="waterInfoTitleLabel" destination="LJk-ci-aY5" id="2Jc-GH-ZqD"/>
