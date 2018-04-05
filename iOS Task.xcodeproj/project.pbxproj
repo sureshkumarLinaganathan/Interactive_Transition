@@ -16,6 +16,7 @@
 		93AD2BE6206CED760013A822 /* Zoho_iOS_TaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD2BE5206CED760013A822 /* Zoho_iOS_TaskTests.m */; };
 		93AD2BF1206CED760013A822 /* Zoho_iOS_TaskUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD2BF0206CED760013A822 /* Zoho_iOS_TaskUITests.m */; };
 		93EDAC9320713F4B00F3C593 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93EDAC9220713F4B00F3C593 /* CollectionViewCell.m */; };
+		D56CB0942076338B009D7B0D /* ChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D56CB0932076338B009D7B0D /* ChartView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		93AD2BF2206CED760013A822 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93EDAC9120713F4B00F3C593 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		93EDAC9220713F4B00F3C593 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		D56CB0922076338B009D7B0D /* ChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartView.h; sourceTree = "<group>"; };
+		D56CB0932076338B009D7B0D /* ChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				93AD2BDA206CED760013A822 /* Info.plist */,
 				93AD2BDB206CED760013A822 /* main.m */,
 				93EDAC9420713F5700F3C593 /* Cell */,
+				D56CB0922076338B009D7B0D /* ChartView.h */,
+				D56CB0932076338B009D7B0D /* ChartView.m */,
 			);
 			path = iOS_Task;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			files = (
 				93AD2BD1206CED760013A822 /* ViewController.m in Sources */,
 				93AD2BDC206CED760013A822 /* main.m in Sources */,
+				D56CB0942076338B009D7B0D /* ChartView.m in Sources */,
 				93EDAC9320713F4B00F3C593 /* CollectionViewCell.m in Sources */,
 				93AD2BCE206CED760013A822 /* AppDelegate.m in Sources */,
 			);

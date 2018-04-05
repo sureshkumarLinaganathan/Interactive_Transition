@@ -53,6 +53,8 @@ enum flag{
 @property (nonatomic, assign) BOOL plantAnimationComplted;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *plantReadyForWaterigLableTopConstraint;
 
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 
 @property (nonatomic,assign) int flag;
 
@@ -71,6 +73,7 @@ enum flag{
 
 -(void)setupView{
     
+    [self findTodayDate];
     _plantScreenSize = halfScreen;
     UIPanGestureRecognizer *tapGesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(planetViewTapped)];
     [self.plantView addGestureRecognizer:tapGesture];
@@ -104,7 +107,7 @@ enum flag{
                 [self.view layoutIfNeeded];
             } completion:^(BOOL finished){
                 _plantReadyForWaterigLableTopConstraint.constant = 5;
-                [UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     [self.view layoutIfNeeded];
                 } completion:^(BOOL finished){
                    
@@ -115,14 +118,14 @@ enum flag{
         }else{
             [self backgroundViewZoomOutAnimation];
             _plantScreenSize = halfScreen;
-            height = 300;
-             _plantReadyForWaterigLableTopConstraint.constant = height+5;
+             height = 382;
+            _plantReadyForWaterigLableTopConstraint.constant = height;
             [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 
                 [self.view layoutIfNeeded];
                 
             } completion:^(BOOL finished) {
-                _planetViewHeightConstraint.constant = height;
+                _planetViewHeightConstraint.constant = 255;
                 _plantReadyForWaterigLableTopConstraint.constant = 5;
                 [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     [self.view layoutIfNeeded];
@@ -158,9 +161,10 @@ enum flag{
 -(void)detailViewTapped{
     
     __block int height = 0 ;
-    
-    
     if(!_animationComplted){
+        if(_plantScreenSize == fullScreen){
+            [self planetViewTapped];
+        }
         _animationComplted = YES;
         if(_detailViewScreenSize == halfScreen){
             _detailViewScreenSize = fullScreen;
@@ -387,6 +391,19 @@ enum flag{
     _temperatureLabel.alpha = 0;
     _humidityLabel.alpha = 0;
     _lightLabel.alpha = 0;
+}
+
+
+-(void)findTodayDate{
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth fromDate:[NSDate date]];
+    
+    NSInteger day = [components day];
+    NSInteger month = [components month];
+    NSDateFormatter *dateFormater = [[NSDateFormatter alloc] init];
+    NSString *monthName = [[dateFormater shortMonthSymbols] objectAtIndex:(month-1)];
+    _dateLabel.text = [NSString stringWithFormat:@"%ld",day];
+    _monthLabel.text = monthName;
 }
 
 

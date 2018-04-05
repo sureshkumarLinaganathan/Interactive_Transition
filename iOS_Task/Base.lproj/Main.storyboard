@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,7 +104,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWC-1X-zKU">
-                                <rect key="frame" x="0.0" y="429" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="129" width="375" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planets Ready for Watering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzG-d6-HCB">
                                         <rect key="frame" x="10" y="5" width="365" height="30"/>
@@ -170,15 +170,73 @@
                                             <outlet property="delegate" destination="mMH-dO-2Fa" id="286-eb-zeQ"/>
                                         </connections>
                                     </collectionView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zet-PL-4um">
+                                        <rect key="frame" x="0.0" y="170" width="375" height="300"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Workload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hD0-QL-OLn">
+                                                <rect key="frame" x="10" y="5" width="315" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="bh7-kc-GnY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBX-EY-cQK">
+                                                <rect key="frame" x="330" y="5" width="40" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="IVD-9b-evd"/>
+                                                    <constraint firstAttribute="height" constant="25" id="Rjq-hJ-mkx"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQa-NH-btt">
+                                                <rect key="frame" x="330" y="32" width="40" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="YXe-jG-AN4"/>
+                                                    <constraint firstAttribute="height" constant="25" id="srt-Hb-47c"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zCY-N3-NbD" customClass="ChartView">
+                                                <rect key="frame" x="0.0" y="57" width="375" height="210"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="210" id="HEB-yp-Euh"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="2BV-AM-GNI"/>
+                                            <constraint firstAttribute="trailing" secondItem="zCY-N3-NbD" secondAttribute="trailing" id="9OG-hp-uGF"/>
+                                            <constraint firstItem="hD0-QL-OLn" firstAttribute="top" secondItem="Zet-PL-4um" secondAttribute="top" constant="5" id="JFE-3h-os6"/>
+                                            <constraint firstAttribute="trailing" secondItem="bBX-EY-cQK" secondAttribute="trailing" constant="5" id="QK3-ur-3gS"/>
+                                            <constraint firstItem="hD0-QL-OLn" firstAttribute="leading" secondItem="Zet-PL-4um" secondAttribute="leading" constant="10" id="Sty-qx-bgP"/>
+                                            <constraint firstAttribute="trailing" secondItem="mQa-NH-btt" secondAttribute="trailing" constant="5" id="a5g-iO-UjH"/>
+                                            <constraint firstItem="bBX-EY-cQK" firstAttribute="top" secondItem="Zet-PL-4um" secondAttribute="top" constant="5" id="lc1-Xm-oqm"/>
+                                            <constraint firstItem="mQa-NH-btt" firstAttribute="top" secondItem="bBX-EY-cQK" secondAttribute="bottom" constant="2" id="mC6-2o-tYN"/>
+                                            <constraint firstItem="zCY-N3-NbD" firstAttribute="leading" secondItem="Zet-PL-4um" secondAttribute="leading" id="mZU-RJ-ShE"/>
+                                            <constraint firstItem="bBX-EY-cQK" firstAttribute="leading" secondItem="hD0-QL-OLn" secondAttribute="trailing" constant="5" id="sN0-63-VrW"/>
+                                            <constraint firstItem="zCY-N3-NbD" firstAttribute="top" secondItem="mQa-NH-btt" secondAttribute="bottom" id="vrQ-OL-Of0"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.12941176470588234" green="0.16078431372549018" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Zet-PL-4um" firstAttribute="top" secondItem="zeu-tQ-Ffk" secondAttribute="bottom" constant="30" id="2a7-fr-BLw"/>
                                     <constraint firstItem="zeu-tQ-Ffk" firstAttribute="top" secondItem="GzG-d6-HCB" secondAttribute="bottom" constant="5" id="Bhc-LU-MSb"/>
                                     <constraint firstItem="GzG-d6-HCB" firstAttribute="top" secondItem="LWC-1X-zKU" secondAttribute="top" constant="5" id="Ndh-3J-FLu"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zet-PL-4um" secondAttribute="trailing" id="R5X-bK-3bn"/>
                                     <constraint firstItem="GzG-d6-HCB" firstAttribute="leading" secondItem="LWC-1X-zKU" secondAttribute="leading" constant="10" id="bvE-mv-mar"/>
                                     <constraint firstAttribute="trailing" secondItem="zeu-tQ-Ffk" secondAttribute="trailing" id="cD2-kS-Sxy"/>
                                     <constraint firstItem="zeu-tQ-Ffk" firstAttribute="leading" secondItem="LWC-1X-zKU" secondAttribute="leading" constant="10" id="dCz-Cn-C1I"/>
-                                    <constraint firstAttribute="height" constant="300" id="hVN-Vf-QOQ"/>
+                                    <constraint firstAttribute="height" constant="600" id="hVN-Vf-QOQ"/>
+                                    <constraint firstItem="Zet-PL-4um" firstAttribute="leading" secondItem="LWC-1X-zKU" secondAttribute="leading" id="s5B-GD-EgT"/>
                                     <constraint firstAttribute="trailing" secondItem="GzG-d6-HCB" secondAttribute="trailing" id="yin-0S-JDd"/>
                                 </constraints>
                             </view>
@@ -380,6 +438,7 @@
                     <tabBarItem key="tabBarItem" title="My Plant" image="planet_icon" id="2b2-fG-6OO"/>
                     <navigationItem key="navigationItem" id="5wN-hk-IR5"/>
                     <connections>
+                        <outlet property="dateLabel" destination="bBX-EY-cQK" id="Ki0-3b-Zwm"/>
                         <outlet property="dayLabel" destination="zpu-cG-spk" id="Rwu-Ux-PmZ"/>
                         <outlet property="detailViewHeightConstraint" destination="O2E-Mz-wJF" id="cX9-8e-yzZ"/>
                         <outlet property="detailsView" destination="kcM-xa-NKB" id="QSf-zl-DBy"/>
@@ -387,6 +446,7 @@
                         <outlet property="humidityLabel" destination="JKd-YW-0sJ" id="epk-HK-GSO"/>
                         <outlet property="imageView" destination="2yA-JC-yb1" id="Mfm-38-9OU"/>
                         <outlet property="lightLabel" destination="iE9-w9-MVp" id="80F-Iq-Kkt"/>
+                        <outlet property="monthLabel" destination="mQa-NH-btt" id="IPd-A3-e9I"/>
                         <outlet property="nextWaterinLabeltopconstraint" destination="oUK-dF-exV" id="b4u-vc-BNL"/>
                         <outlet property="planetViewHeightConstraint" destination="hVN-Vf-QOQ" id="p9e-xv-A8F"/>
                         <outlet property="plantInfoLabel" destination="p0q-ly-qas" id="tao-H8-uB8"/>
