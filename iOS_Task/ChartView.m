@@ -59,10 +59,10 @@
         xValue = xValue+45;
     }
     
-    NSArray *actualPoints = [[NSArray alloc]initWithObjects:[NSValue valueWithCGPoint:CGPointMake(50,90)],[NSValue valueWithCGPoint:CGPointMake(75,110)],[NSValue valueWithCGPoint:CGPointMake(85,110)], nil];
+    NSArray *actualPoints = [[NSArray alloc]initWithObjects:[NSValue valueWithCGPoint:CGPointMake(50,90)],[NSValue valueWithCGPoint:CGPointMake(100,110)],[NSValue valueWithCGPoint:CGPointMake(110,105)],[NSValue valueWithCGPoint:CGPointMake(115,100)],[NSValue valueWithCGPoint:CGPointMake(120,95)],[NSValue valueWithCGPoint:CGPointMake(130,90)],[NSValue valueWithCGPoint:CGPointMake(140,85)],[NSValue valueWithCGPoint:CGPointMake(150,86)],[NSValue valueWithCGPoint:CGPointMake(180,80)],[NSValue valueWithCGPoint:CGPointMake(185,77)],[NSValue valueWithCGPoint:CGPointMake(200,70)],[NSValue valueWithCGPoint:CGPointMake(210,40)],[NSValue valueWithCGPoint:CGPointMake(250,15)],[NSValue valueWithCGPoint:CGPointMake(255,18)],[NSValue valueWithCGPoint:CGPointMake(260,20)],[NSValue valueWithCGPoint:CGPointMake(265,25)],[NSValue valueWithCGPoint:CGPointMake(300,130)],[NSValue valueWithCGPoint:CGPointMake(320,125)],nil];
     
     UIBezierPath *path = [UIBezierPath bezierPath];
-    [path setLineWidth:2.0];
+    [path setLineWidth:3.0];
     [path setLineCapStyle:kCGLineCapRound];
     [path setLineJoinStyle:kCGLineJoinRound];
     NSValue *value = [actualPoints objectAtIndex:0];

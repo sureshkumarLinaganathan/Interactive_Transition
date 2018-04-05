@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -104,7 +104,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWC-1X-zKU">
-                                <rect key="frame" x="0.0" y="129" width="375" height="600"/>
+                                <rect key="frame" x="0.0" y="474" width="375" height="255"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planets Ready for Watering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzG-d6-HCB">
                                         <rect key="frame" x="10" y="5" width="365" height="30"/>
@@ -235,7 +235,7 @@
                                     <constraint firstItem="GzG-d6-HCB" firstAttribute="leading" secondItem="LWC-1X-zKU" secondAttribute="leading" constant="10" id="bvE-mv-mar"/>
                                     <constraint firstAttribute="trailing" secondItem="zeu-tQ-Ffk" secondAttribute="trailing" id="cD2-kS-Sxy"/>
                                     <constraint firstItem="zeu-tQ-Ffk" firstAttribute="leading" secondItem="LWC-1X-zKU" secondAttribute="leading" constant="10" id="dCz-Cn-C1I"/>
-                                    <constraint firstAttribute="height" constant="600" id="hVN-Vf-QOQ"/>
+                                    <constraint firstAttribute="height" constant="255" id="hVN-Vf-QOQ"/>
                                     <constraint firstItem="Zet-PL-4um" firstAttribute="leading" secondItem="LWC-1X-zKU" secondAttribute="leading" id="s5B-GD-EgT"/>
                                     <constraint firstAttribute="trailing" secondItem="GzG-d6-HCB" secondAttribute="trailing" id="yin-0S-JDd"/>
                                 </constraints>
