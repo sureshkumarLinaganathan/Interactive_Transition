@@ -55,6 +55,7 @@ enum flag{
 
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *monthLabel;
+@property (weak, nonatomic) IBOutlet UIView *graphView;
 
 @property (nonatomic,assign) int flag;
 
@@ -89,6 +90,7 @@ enum flag{
     [_detailsView.layer setCornerRadius:5.0];
     _imageArray = [[NSMutableArray alloc]initWithObjects:@"image_1",@"image_2",@"image_3",@"image_4",@"image_5",nil];
     _plantAnimationComplted = YES;
+    _graphView.alpha = 0;
 }
 
 -(void)planetViewTapped{
@@ -110,7 +112,12 @@ enum flag{
                 [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     [self.view layoutIfNeeded];
                 } completion:^(BOOL finished){
-                   
+                    CAKeyframeAnimation *plantInfoAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+                    plantInfoAnimation.values = [[NSArray alloc]initWithObjects:@0,@0.1,@0.3,@0.5,@0.7,@1,nil];
+                    plantInfoAnimation.duration = 0.3;
+                    plantInfoAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+                    [_graphView.layer addAnimation:plantInfoAnimation forKey:@"opacity"];
+                    _graphView.alpha = 1.0;
                     _plantAnimationComplted = YES;
                 }];
             }];
@@ -119,8 +126,16 @@ enum flag{
             [self backgroundViewZoomOutAnimation];
             _plantScreenSize = halfScreen;
              height = 382;
+            
+            CAKeyframeAnimation *plantInfoAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+            plantInfoAnimation.values = [[NSArray alloc]initWithObjects:@1,@0.7,@0.5,@0.3,@0.1,@0,nil];
+            plantInfoAnimation.duration = 0.3;
+            plantInfoAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+            [_graphView.layer addAnimation:plantInfoAnimation forKey:@"opacity"];
+            _graphView.alpha = 0.0;
+            
             _plantReadyForWaterigLableTopConstraint.constant = height;
-            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 
                 [self.view layoutIfNeeded];
                 
