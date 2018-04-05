@@ -49,6 +49,10 @@ enum flag{
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *waterDropImageView;
 
+@property (nonatomic, assign) BOOL animationComplted;
+@property (nonatomic, assign) BOOL plantAnimationComplted;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *plantReadyForWaterigLableTopConstraint;
+
 
 @property (nonatomic,assign) int flag;
 
@@ -68,11 +72,10 @@ enum flag{
 -(void)setupView{
     
     _plantScreenSize = halfScreen;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(planetViewTapped)];
-    [tapGesture setNumberOfTapsRequired:1];
+    UIPanGestureRecognizer *tapGesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(planetViewTapped)];
     [self.plantView addGestureRecognizer:tapGesture];
     
-    UIPanGestureRecognizer *detailViewTapGesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(detailViewTapped:)];
+    UIPanGestureRecognizer *detailViewTapGesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(detailViewTapped)];
     [_detailsView addGestureRecognizer:detailViewTapGesture];
     
     UITapGestureRecognizer *waterViewTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(waterViewTapped)];
@@ -82,27 +85,56 @@ enum flag{
     [_plantView.layer setCornerRadius:5.0];
     [_detailsView.layer setCornerRadius:5.0];
     _imageArray = [[NSMutableArray alloc]initWithObjects:@"image_1",@"image_2",@"image_3",@"image_4",@"image_5",nil];
+    _plantAnimationComplted = YES;
 }
 
 -(void)planetViewTapped{
     int height = 0 ;
     
-    if(_plantScreenSize == halfScreen){
-        [self backgroundViewZoomInAnimation];
-        _plantScreenSize = fullScreen;
-         height = _plantView.frame.origin.y - (_headerView.frame.origin.y+48);
-         height = _plantView.frame.size.height+height;
-        _imageView.contentMode = UIViewContentModeScaleAspectFill;
-    }else{
-        [self backgroundViewZoomOutAnimation];
-        _plantScreenSize = halfScreen;
-        height = 300;
+    if(_plantAnimationComplted){
+        _plantAnimationComplted = NO;
+        if(_plantScreenSize == halfScreen){
+            [self backgroundViewZoomInAnimation];
+            _plantScreenSize = fullScreen;
+             height = _plantView.frame.origin.y - (_headerView.frame.origin.y+48);
+            _plantReadyForWaterigLableTopConstraint.constant = height;
+             height = _plantView.frame.size.height+height;
+            _planetViewHeightConstraint.constant = height;
+            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                [self.view layoutIfNeeded];
+            } completion:^(BOOL finished){
+                _plantReadyForWaterigLableTopConstraint.constant = 5;
+                [UIView animateWithDuration:0.5 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                    [self.view layoutIfNeeded];
+                } completion:^(BOOL finished){
+                   
+                    _plantAnimationComplted = YES;
+                }];
+            }];
+            
+        }else{
+            [self backgroundViewZoomOutAnimation];
+            _plantScreenSize = halfScreen;
+            height = 300;
+             _plantReadyForWaterigLableTopConstraint.constant = height+5;
+            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                
+                [self.view layoutIfNeeded];
+                
+            } completion:^(BOOL finished) {
+                _planetViewHeightConstraint.constant = height;
+                _plantReadyForWaterigLableTopConstraint.constant = 5;
+                [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                    [self.view layoutIfNeeded];
+                } completion:^(BOOL finished) {
+                    
+                    _plantAnimationComplted = YES;
+                }];
+                
+            }];
+        }
+    
     }
-    _planetViewHeightConstraint.constant = height;
-    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        [self.view layoutIfNeeded];
-
-    } completion:nil];
     
 }
 
@@ -123,84 +155,67 @@ enum flag{
 }
 
 
--(void)detailViewTapped:(UIPanGestureRecognizer*)recognizer{
+-(void)detailViewTapped{
     
     __block int height = 0 ;
     
     
-   CGPoint point = [recognizer locationInView:self.detailsView];
+    if(!_animationComplted){
+        _animationComplted = YES;
+        if(_detailViewScreenSize == halfScreen){
+            _detailViewScreenSize = fullScreen;
+            [self backgroundViewZoomInAnimation];
+            height = 300;
+            _detailViewHeightConstraint.constant = height;
+            _nextWaterinLabeltopconstraint.constant = 150;
+            [self resetAlphaValue];
+             [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                  [self.view layoutIfNeeded];
+             } completion:^(BOOL finished) {
+            
+            }];
+            [self performSelector:@selector(contentAnimation) withObject:nil afterDelay:0.3];
+        }else{
+            NSArray *array =[[NSArray alloc]initWithObjects:@1,@0.7,@0.5,@0.3,@0.1,@0,nil];
+            [self resetPlanInfoViewAnimation];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [self showWaterInfoViewAnimation:array withAlphavalue:0.0];
+                _nextWaterinLabeltopconstraint.constant = 150;
+                [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                    [self.view layoutIfNeeded];
+                    [self backgroundViewZoomOutAnimation];
+                } completion:^(BOOL finished) {
+                }];
+                
+                _detailViewScreenSize = halfScreen;
+                height = 110;
+                _nextWaterinLabeltopconstraint.constant = 5;
+                _detailViewHeightConstraint.constant = height;
+                [UIView animateWithDuration:0.4 delay:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                    [self changeDayAnimation:1 withFlag:increment];
+                    [self setAnimation];
+                    [self.view layoutIfNeeded];
+                } completion:^(BOOL finished) {
+                }];
+                
+            });
+
+        }
     
-    if(_detailViewScreenSize == halfScreen){
-        _detailViewScreenSize = fullScreen;
-        [self backgroundViewZoomInAnimation];
-        height = 300;
-        _detailViewHeightConstraint.constant = height;
-        _nextWaterinLabeltopconstraint.constant = 150;
-        [self resetAlphaValue];
-         [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-              [self.view layoutIfNeeded];
-         } completion:^(BOOL finished) {
-        
-        }];
-        [self performSelector:@selector(contentAnimation) withObject:nil afterDelay:0.3];
-    }else{
-        height = 110;
-        _detailViewScreenSize = halfScreen;
-       _nextWaterinLabeltopconstraint.constant = 5;
-      _detailViewHeightConstraint.constant = height;
-      [UIView animateWithDuration:0.4 delay:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-      [self changeDayAnimation:1 withFlag:increment];
-        [self.view layoutIfNeeded];
-     } completion:^(BOOL finished) {
-        
-    }];
     }
-    NSLog(@"%f, %f",point.x,point.y);
-//    if(_detailViewScreenSize == halfScreen){
-//        [self backgroundViewZoomInAnimation];
-//        _detailViewScreenSize = fullScreen;
-//         height = 300;
-//        _detailViewHeightConstraint.constant = height;
-//        _nextWaterinLabeltopconstraint.constant = 150;
-//        [self resetAlphaValue];
-//        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-//          [self.view layoutIfNeeded];
-//        } completion:^(BOOL finished) {
-//
-//        }];
-//        [self performSelector:@selector(contentAnimation) withObject:nil afterDelay:0.3];
-//    }else{
-//        NSArray *array =[[NSArray alloc]initWithObjects:@1,@0.7,@0.5,@0.3,@0.1,@0,nil];
-//        [self resetPlanInfoViewAnimation];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//            [self showWaterInfoViewAnimation:array withAlphavalue:0.0];
-//            _nextWaterinLabeltopconstraint.constant = 150;
-//            [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-//                        [self.view layoutIfNeeded];
-//                        [self backgroundViewZoomOutAnimation];
-//            } completion:^(BOOL finished) {
-//            }];
-//
-//            _detailViewScreenSize = halfScreen;
-//            height = 110;
-//            _nextWaterinLabeltopconstraint.constant = 5;
-//            _detailViewHeightConstraint.constant = height;
-//            [UIView animateWithDuration:0.4 delay:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-//                [self changeDayAnimation:1 withFlag:increment];
-//                [self.view layoutIfNeeded];
-//            } completion:^(BOOL finished) {
-//
-//            }];
-//
-//        });
-//
-//    }
     
 }
 
 -(void)waterViewTapped{
     
-    //[self detailViewTapped];
+    if(_detailViewScreenSize == fullScreen){
+        [self detailViewTapped];
+        [self setAnimation];
+    }
+}
+
+-(void)setAnimation{
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         
         [self changeDayAnimation:7 withFlag:decrement];
@@ -254,6 +269,9 @@ enum flag{
     animation.toValue = toColor;
     animation.duration = 1.0;
     [_waterAnimationView.layer addAnimation:animation forKey:@"backgroundColor"];
+    if(_detailViewScreenSize == halfScreen){
+        _animationComplted = NO;
+    }
     
 }
 
@@ -354,7 +372,9 @@ enum flag{
     plantInfoAnimation.duration = 0.3;
     plantInfoAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     [layer addAnimation:plantInfoAnimation forKey:@"opacity"];
-    
+    if(_detailViewScreenSize == fullScreen){
+    _animationComplted = NO;
+    }
 }
 
 

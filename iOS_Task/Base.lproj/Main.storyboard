@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -390,6 +390,7 @@
                         <outlet property="nextWaterinLabeltopconstraint" destination="oUK-dF-exV" id="b4u-vc-BNL"/>
                         <outlet property="planetViewHeightConstraint" destination="hVN-Vf-QOQ" id="p9e-xv-A8F"/>
                         <outlet property="plantInfoLabel" destination="p0q-ly-qas" id="tao-H8-uB8"/>
+                        <outlet property="plantReadyForWaterigLableTopConstraint" destination="Ndh-3J-FLu" id="1Os-7g-TMZ"/>
                         <outlet property="plantView" destination="LWC-1X-zKU" id="pcR-Dt-OKD"/>
                         <outlet property="segmentControl" destination="Mgm-48-PFi" id="aMb-NN-EcA"/>
                         <outlet property="temperatureLabel" destination="wkR-gq-yAV" id="ICS-Yy-pck"/>
