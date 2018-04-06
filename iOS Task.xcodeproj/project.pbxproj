@@ -116,8 +116,7 @@
 				93AD2BDA206CED760013A822 /* Info.plist */,
 				93AD2BDB206CED760013A822 /* main.m */,
 				93EDAC9420713F5700F3C593 /* Cell */,
-				D56CB0922076338B009D7B0D /* ChartView.h */,
-				D56CB0932076338B009D7B0D /* ChartView.m */,
+				D58F40A32077355B00187487 /* ChartView */,
 			);
 			path = iOS_Task;
 			sourceTree = "<group>";
@@ -156,6 +155,15 @@
 				93EDAC9220713F4B00F3C593 /* CollectionViewCell.m */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		D58F40A32077355B00187487 /* ChartView */ = {
+			isa = PBXGroup;
+			children = (
+				D56CB0922076338B009D7B0D /* ChartView.h */,
+				D56CB0932076338B009D7B0D /* ChartView.m */,
+			);
+			path = ChartView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

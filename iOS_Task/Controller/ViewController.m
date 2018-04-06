@@ -58,10 +58,13 @@ enum flag{
 @property (weak, nonatomic) IBOutlet UIView *graphView;
 
 @property (nonatomic,assign) int flag;
+@property (nonatomic, assign) BOOL plantViewCalled;
 
 @end
 
 @implementation ViewController
+
+#pragma mark - View life cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -92,6 +95,8 @@ enum flag{
     _plantAnimationComplted = YES;
     _graphView.alpha = 0;
 }
+
+#pragma mark - View animations
 
 -(void)planetViewTapped{
     int height = 0 ;
@@ -135,7 +140,7 @@ enum flag{
             _graphView.alpha = 0.0;
             
             _plantReadyForWaterigLableTopConstraint.constant = height;
-            [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                 
                 [self.view layoutIfNeeded];
                 
@@ -178,12 +183,16 @@ enum flag{
     __block int height = 0 ;
     if(!_animationComplted){
         if(_plantScreenSize == fullScreen){
+            _plantViewCalled = YES;
             [self planetViewTapped];
+            
         }
         _animationComplted = YES;
         if(_detailViewScreenSize == halfScreen){
             _detailViewScreenSize = fullScreen;
+            if(!_plantViewCalled){
             [self backgroundViewZoomInAnimation];
+            }
             height = 300;
             _detailViewHeightConstraint.constant = height;
             _nextWaterinLabeltopconstraint.constant = 150;
@@ -197,12 +206,17 @@ enum flag{
         }else{
             NSArray *array =[[NSArray alloc]initWithObjects:@1,@0.7,@0.5,@0.3,@0.1,@0,nil];
             [self resetPlanInfoViewAnimation];
+            if(_plantViewCalled){
+                [self backgroundViewZoomInAnimation];
+                _plantViewCalled = NO;
+            }else{
+            [self backgroundViewZoomOutAnimation];
+            }
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [self showWaterInfoViewAnimation:array withAlphavalue:0.0];
                 _nextWaterinLabeltopconstraint.constant = 150;
                 [UIView animateWithDuration:0.5 delay:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
                     [self.view layoutIfNeeded];
-                    [self backgroundViewZoomOutAnimation];
                 } completion:^(BOOL finished) {
                 }];
                 
@@ -396,6 +410,7 @@ enum flag{
     }
 }
 
+#pragma mark - Reset value
 
 -(void)resetAlphaValue{
     
@@ -408,6 +423,7 @@ enum flag{
     _lightLabel.alpha = 0;
 }
 
+#pragma mark - Find date
 
 -(void)findTodayDate{
     

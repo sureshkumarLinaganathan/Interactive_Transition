@@ -21,7 +21,6 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(context, [UIColor whiteColor].CGColor);
     
-    // Draw them with a 2.0 stroke width so they are a bit more visible.
     CGContextSetLineWidth(context, 1.0f);
    
     CGContextMoveToPoint(context,30.0f, 160.0f);
@@ -32,11 +31,23 @@
     
     CGContextAddLineToPoint(context,185.0f, 10.0f);
     
+    //[self drawText:180 yPosition:73 width:50 height:50 withText:@"11"];
+    
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
     [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(178, 65,15,15)] CGPath]];
     [circleLayer setStrokeColor:[[UIColor whiteColor] CGColor]];
     [circleLayer setFillColor:[[UIColor colorWithRed:33.0/255.0 green:41.0/255.0 blue:51.0/255.0 alpha:0.9] CGColor]];
     [self.layer addSublayer:circleLayer];
+    
+    CATextLayer *label = [[CATextLayer alloc] init];
+    [label setFont:@"Helvetica-Bold"];
+    [label setFontSize:8];
+    CGRect frame  =  CGRectMake(175, 70, 20, 20);
+    [label setFrame:frame];
+    [label setString:@"11"];
+    [label setAlignmentMode:kCAAlignmentCenter];
+    [label setForegroundColor:[[UIColor whiteColor] CGColor]];
+    [self.layer addSublayer:label];
     
     
     
@@ -76,13 +87,10 @@
         
         CGPoint centerPoint = CGPointMake((p1.x+p2.x)/2, (p1.y+p2.y)/2);
         
-        // See if your curve is decreasing or increasing
-        // You can optimize it further by finding point on normal of line passing through midpoint
-        
         if (p1.y<p2.y) {
-            centerPoint = CGPointMake(centerPoint.x, centerPoint.y+(abs(p2.y-centerPoint.y)));
+            centerPoint = CGPointMake(centerPoint.x, centerPoint.y+(fabs(p2.y-centerPoint.y)));
         }else if(p1.y>p2.y){
-            centerPoint = CGPointMake(centerPoint.x, centerPoint.y-(abs(p2.y-centerPoint.y)));
+            centerPoint = CGPointMake(centerPoint.x, centerPoint.y-(fabs(p2.y-centerPoint.y)));
         }
         
         [path addQuadCurveToPoint:p2 controlPoint:centerPoint];
@@ -93,7 +101,6 @@
     [path stroke];
     
     
-    //[self drawText:173 yPosition:95 width:50 height:50 withText:@"11"];
     
 }
 

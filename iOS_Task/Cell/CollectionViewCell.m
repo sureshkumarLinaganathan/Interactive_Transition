@@ -12,8 +12,7 @@
 
 -(void)setupView:(NSString*)imageName{
     
-    [self.cornerView.layer setCornerRadius:5.0];
-    [self.imageView.layer setCornerRadius:5.0];
+    [self.layer setCornerRadius:10.0];
     self.imageView.image = [UIImage imageNamed:imageName];
 }
 

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RFh-dv-vCy">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="MW8-vI-Yao"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Add New" id="Yos-6g-tkc"/>
+                    <tabBarItem key="tabBarItem" title="Add New" image="add_new" id="Yos-6g-tkc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOd-UV-BLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,7 +41,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="FST-Sl-k0t"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Profile" id="VGz-To-cXu"/>
+                    <tabBarItem key="tabBarItem" title="My Profile" image="my_profile" id="VGz-To-cXu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHd-2r-Q7F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,7 +117,7 @@
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zeu-tQ-Ffk">
                                         <rect key="frame" x="10" y="40" width="365" height="100"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="HVT-aR-qyS"/>
                                         </constraints>
@@ -140,10 +140,10 @@
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kM2-oD-jOV">
                                                                     <rect key="frame" x="0.0" y="0.0" width="95" height="128"/>
-                                                                    <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </imageView>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="0.12941176469999999" green="0.16078431369999999" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="kM2-oD-jOV" secondAttribute="bottom" id="3mH-Jh-Q1x"/>
                                                                 <constraint firstItem="kM2-oD-jOV" firstAttribute="top" secondItem="Hg3-dE-3vs" secondAttribute="top" id="7iE-ge-Ja9"/>
@@ -153,6 +153,7 @@
                                                         </view>
                                                     </subviews>
                                                 </view>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Hg3-dE-3vs" firstAttribute="top" secondItem="aD9-3q-plE" secondAttribute="top" id="4Bk-cf-a6S"/>
                                                     <constraint firstItem="Hg3-dE-3vs" firstAttribute="leading" secondItem="aD9-3q-plE" secondAttribute="leading" id="75A-ne-bfI"/>
@@ -488,8 +489,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add_new" width="21" height="21"/>
         <image name="back_icon" width="42" height="42"/>
         <image name="bg_image" width="1200" height="800"/>
+        <image name="my_profile" width="21" height="21"/>
         <image name="planet_icon" width="24" height="24"/>
         <image name="raindrop_icon" width="42" height="42"/>
     </resources>
